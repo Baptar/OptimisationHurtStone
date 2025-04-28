@@ -7,17 +7,21 @@ public static class Load
         return Save.GetBasePath();
     }
 
+    public static string GetPath(string filename)
+    {
+        return Save.GetPath(filename);
+    }
+
     public static bool Deck(out Deck deck, string filename = "deck.json")
     {
-        string path = Path.Combine(GetBasePath(), filename);
-        bool success = LoadJson(out string json, path);
+        bool success = LoadJson(out string json, GetPath(filename));
         if (success) return global::Deck.FromJson(json, out deck);
         deck = default;
         return false;
     }
 
 
-    private static bool LoadJson(out string json, string filepath, bool throwException = false)
+    public static bool LoadJson(out string json, string filepath, bool throwException = false)
     {
         // Check internal validations & exceptions
         string fullpath = Load.InternalCheck(filepath);

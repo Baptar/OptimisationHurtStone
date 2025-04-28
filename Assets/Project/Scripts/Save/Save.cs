@@ -7,15 +7,19 @@ public static class Save
         return Path.Combine(UnityEngine.Application.dataPath, "Saves");
     }
 
+    public static string GetPath(string filename)
+    {
+        return Path.Combine(GetBasePath(), filename);
+    }
+
     public static bool Deck(Deck deck, string filename = "deck.json")
     {
         if (deck == null) return false;
-        string path = Path.Combine(GetBasePath(), filename);
-        return SaveJson(deck.ToJson(), path);
+        return SaveJson(deck.ToJson(), GetPath(filename));
     }
     
 
-    private static bool SaveJson(string json, string filepath, bool overwrite = true)
+    public static bool SaveJson(string json, string filepath, bool overwrite = true)
     {
         string fullpath = Save.InternalCheck(filepath, overwrite);
         File.WriteAllText(fullpath, json);
