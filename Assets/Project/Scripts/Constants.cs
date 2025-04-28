@@ -12,4 +12,7 @@ public static class Constants
 
     // Default Deck Player Name
     public const string playerName = "Unknown";
+
+    // Simulation Deck Pool Size
+    public const int deckPoolSize = 5;
 }
