@@ -31,11 +31,12 @@ public partial class Deck
         return cards.First();
     }
 
-    public void Shuffle()
+    public Deck Shuffle()
     {
         cards = cards.OrderBy((Card _) =>
             System.Guid.NewGuid()
         ).ToList();
+        return this;
     }
 }
 
@@ -57,9 +58,9 @@ public partial class Deck
         }
 
         // Return result deck
-        return new Deck { 
+        return new Deck {
+            cards = CardPool.Order(deckResult),
             player = player,
-            cards = deckResult
         };
     }
 }
