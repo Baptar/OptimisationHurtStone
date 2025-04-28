@@ -4,6 +4,7 @@ using UnityEngine;
 
 public partial class Deck
 {
+    private string player = Constants.playerName;
     private List<Card> cards = new List<Card>();
 
     public int Count()
@@ -24,6 +25,12 @@ public partial class Deck
         return card;
     }
 
+    public Card Seek()
+    {
+        if (this.IsEmpty()) return default;
+        return cards.First();
+    }
+
     public void Shuffle()
     {
         cards = cards.OrderBy((Card _) =>
@@ -36,11 +43,24 @@ public partial class Deck
 
 public partial class Deck
 {
-    public static Deck Generate()
+    public static Deck Generate(string player = Constants.playerName)
     {
+        // Get Deck Construct to use to generate one
         List<Card> deckConstruct = DeckHelper.PoolToDeckConstruct(CardPool.Get());
 
-        throw new System.NotImplementedException();
+        // Generate deck content (WARNING !! Not optimized. Use with caution)
+        List<Card> deckResult = new List<Card>();
+        for (int i = 0; i < Constants.deckSize; ++i) {
+            int id = Random.Range(0, deckConstruct.Count);
+            deckResult.Add(deckConstruct[id]);
+            deckConstruct.RemoveAt(id);
+        }
+
+        // Return result deck
+        return new Deck { 
+            player = player,
+            cards = deckResult
+        };
     }
 }
 
@@ -59,6 +79,7 @@ public partial class Deck
     public Deck.Json ToSerializable()
     {
         return new Deck.Json {
+            player = player,
             deck = cards.Select((Card c) =>
                 c.ToSerializable()
             ).ToList()
@@ -68,6 +89,7 @@ public partial class Deck
     public static Deck FromSerializable(Deck.Json serializable)
     {
         return new Deck {
+            player = serializable.player,
             cards = serializable.deck.Select((Card.Json c) => 
                 Card.FromSerializable(c)
             ).ToList()
