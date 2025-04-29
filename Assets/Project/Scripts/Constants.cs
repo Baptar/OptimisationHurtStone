@@ -1,3 +1,5 @@
+using UnityEngine;
+
 public static class Constants
 {
     // Number of duplicate to construct Deck from card pool
@@ -7,6 +9,7 @@ public static class Constants
 
     // Max Card cost
     public const int maxCardCost = 6;
+
     // Max Values (for generation)
     public const int maxCardValue = 20;
 
@@ -15,4 +18,8 @@ public static class Constants
 
     // Simulation Deck Pool Size
     public const int deckPoolSize = 5;
+
+    public const int mainNumberStart = 5;
+
+    public const int playerPVStart = 30;
 }
