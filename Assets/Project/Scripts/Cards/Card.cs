@@ -22,6 +22,25 @@ public partial struct Card
         cost = Mathf.FloorToInt((atk + def) / 2);
         return this;
     }
+
+    public override readonly bool Equals(object obj)
+    {
+        if (obj is Card card) Equals(card);
+        return base.Equals(obj);
+    }
+
+    public override readonly int GetHashCode()
+    {
+        return System.Tuple.Create(name, cost, atk, def).GetHashCode();
+    }
+
+    public readonly bool Equals(Card card)
+    {
+        return name == card.name
+            && cost == card.cost
+            && atk == card.atk
+            && def == card.def;
+    }
 }
 
 

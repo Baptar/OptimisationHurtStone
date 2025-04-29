@@ -3687,7 +3687,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stopSimulation: 0
-  simulationDelay: 0.1
+  startSimulation: 1
+  simulationDelay: 0.01
   benchmarkDeck: benchmark_deck.json
   referenceDeck: reference_deck.json
   benchmarkSave: opti_Bench_deck.json

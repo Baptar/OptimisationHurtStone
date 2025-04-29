@@ -38,7 +38,7 @@ public static class CardPool
 
                 // Generate card
                 Card card = new Card {
-                    name = $"card( atk:{atk} - def:{def} )",
+                    name = $"Card(atk={atk}, def={def})",
                     atk = atk, def = def
                 }.CalculateCost();
 

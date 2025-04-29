@@ -8,7 +8,7 @@ public static class DeckHelper
         if (Constants.duplicateCount <= 0) return pool;
 #pragma warning restore CS0162 // Code inaccessible détecté
         List<Card> output = new List<Card>(pool);
-        for (int i = 1; i < Constants.duplicateCount; ++i) output.AddRange(pool);
+        for (int i = 0; i < Constants.duplicateCount; ++i) output.AddRange(pool);
         return CardPool.Order(output);
     }
 }
