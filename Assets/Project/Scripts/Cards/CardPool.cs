@@ -10,7 +10,7 @@ public static class CardPool
 
     public static List<Card> Get()
     {
-        if (Cached!) Generate();
+        if (!Cached) Generate();
         return cache.ToList();
     }
 
