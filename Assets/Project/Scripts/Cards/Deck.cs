@@ -5,7 +5,7 @@ using UnityEngine;
 public partial class Deck
 {
     private string player = Constants.playerName;
-    private List<Card> cards = new List<Card>();
+    public List<Card> cards = new List<Card>();
 
     public int Count()
     {

@@ -35,9 +35,9 @@ public class Game
     {
         startOrder = Random.Range(0, 2);
         board.Init(count: 2);
-        if (benchDeck == null) players[0].Init(0, "benchmark_deck.json"); // Load bench deck
+        if (benchDeck == null) players[0].Init(0, Constants.benchmarkDeck); // Load bench deck
         else players[0].Init(0, benchDeck); // Create by copying bench deck
-        if (refDeck == null) players[1].Init(1, "reference_deck.json"); // Load ref deck
+        if (refDeck == null) players[1].Init(1, Constants.referenceDeck); // Load ref deck
         else players[1].Init(1, refDeck); // Create by copying ref deck
     }
 

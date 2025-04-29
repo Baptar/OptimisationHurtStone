@@ -9,6 +9,7 @@ public static class Simulator
     private static readonly List<Result> results = new List<Result>();
     private static bool running = false;
 
+    public static bool Running => running;
     public static event System.Action OnStart;
     public static event System.Action OnEnded;
 

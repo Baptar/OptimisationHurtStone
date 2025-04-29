@@ -16,6 +16,12 @@ public static class Constants
     // Default Deck Player Name
     public const string playerName = "Unknown";
 
+    // Default deck names
+    public const string benchmarkDeck = "benchmark_deck.json";
+    public const string referenceDeck = "reference_deck.json";
+    public const string benchmarkOptimize = "opti_Bench_deck.json";
+    public const string referenceOptimize = "opti_Ref_deck.json";
+
     // Simulation Deck Pool Size
     public const int deckPoolSize = 5;
 
