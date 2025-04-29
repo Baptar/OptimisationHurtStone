@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using UnityEngine;
 
@@ -8,6 +9,13 @@ public abstract class SimulatorOutput
     protected struct SerializableResults
     {
         public List<Result> results;
+    }
+
+    public static float GetWinRate(int winnerId)
+    {
+        ReadOnlyCollection<Result> results = Simulator.GetResults();
+        int winCount = results.Select((Result r) => r.winnerId).Where((int id) => id == winnerId).Count();
+        return winCount / (float)results.Count;
     }
 
     public static bool Save(out string filepath)

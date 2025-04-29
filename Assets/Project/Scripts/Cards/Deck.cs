@@ -44,6 +44,14 @@ public partial class Deck
 
 public partial class Deck
 {
+    public Deck Copy()
+    {
+        return new Deck {
+            cards = cards.ToList(),
+            player = player
+        };
+    }
+
     public static Deck Generate(string player = Constants.playerName)
     {
         // Get Deck Construct to use to generate one

@@ -12,7 +12,7 @@ public class GraphOutput : SimulatorOutput
 
 
         // Set graph values (with x & y values)
-        const int graphStepY = 30;
+        //const int graphStepY = 30;
         for (int i = 0; i <= /*results.Count*/ 200; i += 1) {
             lineChart.AddData($"serie0", i, i);
         }

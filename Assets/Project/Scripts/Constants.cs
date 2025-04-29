@@ -19,7 +19,9 @@ public static class Constants
     // Simulation Deck Pool Size
     public const int deckPoolSize = 5;
 
-    public const int mainNumberStart = 5;
+    public const int handNumberStart = 5;
 
     public const int playerPVStart = 30;
+
+    public const int playerManaStart = 0;
 }
